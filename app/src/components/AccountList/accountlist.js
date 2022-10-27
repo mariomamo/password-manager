@@ -1,5 +1,5 @@
 import { React } from 'react';
-import ListItem from '../listitem/listitem';
+import ListItem from '../ListItem/listitem';
 import './accountlist.css';
 
 const AccountList = ({accountList})=> {

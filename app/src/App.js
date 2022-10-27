@@ -1,12 +1,13 @@
 import './App.css';
 import 'antd/dist/antd.css';
-import AccountList from './components/accountlist/accountlist';
-import AddBar from './components/addbar/addbar';
-import './functions/filereader.js';
-import { getPasswords } from './functions/filereader.js';
+import AccountList from './components/AccountList/accountlist';
+import AddBar from './components/AddBar/addbar';
+import './services/fileservice.js';
+import { getPasswords, readFile } from './services/fileservice.js';
 
 function App() {
   const accountList = getPasswords();
+  readFile();
 
   return (
     <div>
