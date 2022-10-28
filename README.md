@@ -7,7 +7,7 @@ npm install -g @neutralinojs/neu
 
 ## Install dependencies
 ```bash
-npm install
+cd app && npm install
 ```
 
 ## Build application
