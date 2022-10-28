@@ -2,7 +2,7 @@ import { React } from 'react';
 import './listitem.css';
 import { EditFilled, DeleteFilled } from '@ant-design/icons';
 import { Popconfirm, message } from 'antd';
-import { readFile } from '../../services/fileservice.js';
+import { copyToClipboard } from '../../services/fileservice.js';
 
 const ListItem = ({accountName})=> {
 
@@ -10,16 +10,16 @@ const ListItem = ({accountName})=> {
         message.success('Account ' + accountName + ' removed!', 1);
     }
 
-    const copyPassword = ()=> {
+    const copyPassword = (accountName)=> {
         message.success('Password for ' + accountName + ' copied to clipboard!', 1);
-        readFile();
+        copyToClipboard(accountName);
     }
 
     return (
         accountName !== "" && accountName !== undefined &&
         <div className="list-item">
             <div className="list-item-row">
-                <div onClick={()=> copyPassword()} className="list-item-title">{accountName}</div>
+                <div onClick={()=> copyPassword(accountName)} className="list-item-title">{accountName}</div>
                 <div className="action-button delete-button">
                     <Popconfirm
                         placement="topRight"

@@ -11,7 +11,7 @@ function App() {
   return (
     <div>
       <div className="App">
-        {/* <AddBar /> */}
+        <AddBar />
         <AccountList accountList={accountList}/>
       </div>
     </div>

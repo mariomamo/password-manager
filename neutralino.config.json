@@ -8,7 +8,8 @@
   "enableNativeAPI": true,
   "nativeAllowList": [
     "app.*",
-    "filesystem.*"
+    "filesystem.*",
+    "clipboard.*"
   ],
   "modes": {
     "window": {
