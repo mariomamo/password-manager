@@ -1,12 +1,40 @@
-INFO 2022-10-28 01:20:22,210 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-ERROR 2022-10-28 01:20:23,982 Unable to open ./resources/favicon.ico api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:31:41,707 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:37:12,960 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:40:09,842 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:41:00,616 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:41:34,103 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:43:47,045 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:53:12,653 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-ERROR 2022-10-28 01:53:14,050 Unable to open ./resources/neutralino.js api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
-INFO 2022-10-28 01:53:23,122 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
-ERROR 2022-10-28 01:53:24,278 Unable to open ./resources/neutralino.js api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:06:00,717 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:06:01,278 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:08:22,093 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:08:22,828 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:09:48,055 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:09:48,533 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:11:02,504 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:11:02,939 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:12:37,843 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:12:38,258 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:13:08,205 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:13:08,615 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:13:27,292 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:13:27,714 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:14:45,815 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:14:46,215 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:17:22,573 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:17:23,438 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:17:48,701 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:17:49,149 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:17:58,600 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:17:59,034 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:19:04,203 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:19:04,686 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:20:02,019 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:20:02,464 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:20:37,949 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:20:38,389 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:20:47,445 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:20:47,932 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:21:41,926 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:21:42,352 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:22:27,934 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:22:28,359 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:25:04,918 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:25:05,684 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:50:44,643 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:50:45,186 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 03:57:08,616 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
+ERROR 2022-10-28 03:57:09,218 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8

@@ -2,6 +2,7 @@ import { React } from 'react';
 import './listitem.css';
 import { EditFilled, DeleteFilled } from '@ant-design/icons';
 import { Popconfirm, message } from 'antd';
+import { readFile } from '../../services/fileservice.js';
 
 const ListItem = ({accountName})=> {
 
@@ -11,6 +12,7 @@ const ListItem = ({accountName})=> {
 
     const copyPassword = ()=> {
         message.success('Password for ' + accountName + ' copied to clipboard!', 1);
+        readFile();
     }
 
     return (
