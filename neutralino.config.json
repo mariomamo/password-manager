@@ -13,17 +13,17 @@
   ],
   "modes": {
     "window": {
-      "title": "myneutralino",
+      "title": "password manager",
       "width": 800,
       "height": 500,
       "minWidth": 400,
       "minHeight": 200,
-      "icon": "/app/public/icon.png",
+      "icon": "/app/public/logo192.png",
       "enableInspector": true
     }
   },
   "cli": {
-    "binaryName": "myneutralino",
+    "binaryName": "password manager",
     "resourcesPath": "/app/build/",
     "extensionsPath": "/extensions/",
     "clientLibrary": "/app/build/neutralino.js",
