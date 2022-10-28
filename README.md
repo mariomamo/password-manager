@@ -11,7 +11,6 @@ cd app && npm install
 ```
 
 ## Build application
-In the root folder
 ```bash
-npm run build
+cd app && npm run build
 ```
