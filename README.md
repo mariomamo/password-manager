@@ -1,6 +1,16 @@
-# neutralinojs-zero
-An empty Neutralinojs app, extend as you wish
+# password-manager
+Install neutralino js
 
+```bash
+npm install -g @neutralinojs/neu
 ```
-neu create myapp --template neutralinojs/neutralinojs-zero
+
+## Install dependencies
+```bash
+npm install
+```
+
+## Build application
+```bash
+npm run build
 ```
