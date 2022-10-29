@@ -11,6 +11,10 @@
     padding: 5px;
 }
 
+.list-item-title:hover {
+    cursor: pointer;
+}
+
 .list-item-row div {
     display: inline-block;
 }

@@ -12,6 +12,12 @@ ReactDOM.render(
 );
 
 window.Neutralino.init();
+// window.Neutralino.events.on("windowClose", () => {
+//   window.Neutralino.app.exit();
+//   console.log("NEUTRALINO: " + window.Neutralino);
+// });
+
+// console.log("NEUTRALINO: " + window.Neutralino);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
