@@ -52,3 +52,77 @@ INFO 2022-10-28 04:02:43,703 Auth info was exported to ./.tmp/auth_info.json api
 ERROR 2022-10-28 04:02:44,125 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
 INFO 2022-10-28 04:03:16,063 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 MarioELT@DESKTOP-STRINP8
 ERROR 2022-10-28 04:03:16,562 Unable to open ./app/public/icon.png api\debug\debug.cpp:16 MarioELT@DESKTOP-STRINP8
+INFO 2022-10-28 18:33:33,900 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+INFO 2022-10-28 18:34:45,231 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+INFO 2022-10-28 18:35:52,575 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+INFO 2022-10-28 18:36:17,318 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+INFO 2022-10-28 18:37:17,165 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+INFO 2022-10-28 18:39:10,553 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+INFO 2022-10-28 18:39:27,229 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+INFO 2022-10-28 18:39:43,183 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:01:11,513 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:01:34,243 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:01:37,358 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:01:46,422 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:02:42,072 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:02:44,048 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:02:44,815 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:03:25,457 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:03:26,152 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:03:57,165 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:04:00,083 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:04:00,858 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:04:12,776 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:04:15,659 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:04:35,046 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:08:01,920 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:08:10,813 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:08:30,229 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:06,327 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:06,996 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:07,316 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:08,245 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:08,532 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:26,651 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:27,413 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:30,093 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:09:34,310 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:10:22,007 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:10:58,370 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:10:59,920 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:11:03,745 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:11:55,512 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:14:10,538 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:14:34,418 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:17:17,797 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:17:19,870 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:17:23,199 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:17:51,489 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:18:33,478 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:19:42,276 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:20:25,025 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:22:18,896 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:23:28,721 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:23:31,522 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:23:33,130 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:24:46,141 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:25:34,455 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:25:45,415 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:26:15,264 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:27:55,254 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:28:08,766 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:28:45,971 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:30:30,314 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:31:34,691 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:34:36,603 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:35:03,931 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:35:26,265 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:35:29,707 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:36:09,196 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-28 20:36:27,375 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+INFO 2022-10-29 00:42:41,411 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+ERROR 2022-10-29 01:30:54,722 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+INFO 2022-10-29 01:36:51,348 Auth info was exported to ./.tmp/auth_info.json api\debug\debug.cpp:14 Mario@MARIO-LENOVO
+ERROR 2022-10-29 02:08:12,826 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-29 02:16:32,804 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO
+ERROR 2022-10-29 02:19:04,396 Unable to parse native call payload: Unknown exception api\debug\debug.cpp:16 Mario@MARIO-LENOVO

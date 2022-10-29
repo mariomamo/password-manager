@@ -11,3 +11,9 @@ neutralino.js
 # Neutralinojs related files
 .storage
 *.log
+.tmp/
+secrets/
+
+keys/
+
+node_modules/
