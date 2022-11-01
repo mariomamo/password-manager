@@ -17,3 +17,7 @@ secrets/
 keys/
 
 node_modules/
+
+password manager-win_x64.exe
+
+WebView2Loader.dll
