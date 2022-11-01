@@ -4,10 +4,11 @@ Password manager is a free and open source project for manage passwords.
 
 ## :white_check_mark: To do list
 Following there is a to do list of functionalities that will be added in future
+* **search**: Search for a specific password;
+* **graphic improvements**: make the add bar for new passwords visible only when needed;
 * **secret keys generator**: If the application not found the encryption/decryption key (or keys) a wizard show up for generating them;
 * **read conf from file**: Create a config file or windows for settings;
-* **firebase**: Given an API key for a firebase account the application will be able to save pasword and read (always in crypted form) from it;
-* **graphic improvement**: make the add bar for new passwords visible only when needed.
+* **firebase**: Given an API key for a firebase account the application will be able to save pasword and read (always in crypted form) from it.
   
 
 # :gear: Install project
