@@ -72,3 +72,17 @@ neu run --frontend-lib-dev
   
 
 Now you will see all the changes directly in Neutralino application
+
+# :hammer: Build executable release
+:one: Build react release
+Go to `/app` folder and run
+```bash
+npm run build
+```
+
+:two: Build Neutralino app
+Go back to project root folder and run
+
+```bash
+neu build
+```
