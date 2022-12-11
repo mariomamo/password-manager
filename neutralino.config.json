@@ -19,7 +19,7 @@
       "minWidth": 400,
       "minHeight": 200,
       "icon": "/app/public/logo192.png",
-      "enableInspector": false
+      "enableInspector": true
     }
   },
   "cli": {
