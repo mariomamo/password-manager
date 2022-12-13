@@ -4,6 +4,7 @@ Password manager is a free and open source project for manage passwords.
 
 ## :white_check_mark: To do list
 Following there is a to do list of functionalities that will be added in future
+* **import/export**: The user can export a json with all the passwords (encrypted of course) and can import them on another pc. The passwords imported will be merged with those already existing;
 * **secret keys generator**: If the application not found the encryption/decryption key (or keys) a wizard show up for generating them;
 * **password generator**: Generate random passwords;
 * **read conf from file**: Create a config file or windows for settings;
