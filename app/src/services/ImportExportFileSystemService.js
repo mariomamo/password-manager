@@ -31,4 +31,4 @@ class ImportExportFileSystemService {
     }
 }
 
-export const importExportService = new ImportExportFileSystemService(passwordService);
+export const importExportFileSystemService = new ImportExportFileSystemService(passwordService);

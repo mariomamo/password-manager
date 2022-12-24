@@ -4,7 +4,7 @@ import AccountList from './components/AccountList/accountlist';
 import TopBar from './components/TopBar/topbar';
 import './services/PasswordService.js';
 import { passwordService } from './services/PasswordService';
-import { importExportService } from './services/ImportExportFileSystemService';
+import { importExportFileSystemService } from './services/ImportExportFileSystemService';
 import { useEffect, useState } from 'react';
 import { message, Menu } from 'antd';
 
@@ -84,7 +84,7 @@ function App() {
 
   const onMenuClick = (e)=> {
     if (e.key == "export") {
-      importExportService.export()
+      importExportFileSystemService.export()
       .then((result) => {
         if (result.success) {
           message.success('Export completed!', 2);
