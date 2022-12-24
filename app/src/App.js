@@ -4,8 +4,9 @@ import AccountList from './components/AccountList/accountlist';
 import TopBar from './components/TopBar/topbar';
 import './services/PasswordService.js';
 import { passwordService } from './services/PasswordService';
+import { importExportService } from './services/ImportExportFileSystemService';
 import { useEffect, useState } from 'react';
-import { message } from 'antd';
+import { message, Menu } from 'antd';
 
 function App() {
   const [accountList, setAccountList] = useState([]);
@@ -59,9 +60,48 @@ function App() {
     loadAccounts();
   }, [])
 
+  const items = [
+    {
+      label: 'File',
+      key: 'SubMenu',
+      children: [
+        {
+          type: 'group',
+          children: [
+            {
+              label: 'Import',
+              key: 'import',
+            },
+            {
+              label: 'Export',
+              key: 'export',
+            },
+          ],
+        }
+      ],
+    }
+  ];
+
+  const onMenuClick = (e)=> {
+    if (e.key == "export") {
+      importExportService.export()
+      .then((result) => {
+        if (result.success) {
+          message.success('Export completed!', 2);
+        } else {
+          message.error('There was an error while exporting accounts', 2);
+        }
+      })
+      .catch((error) => {
+        message.error('There was an error while exporting accounts', 2);
+      });
+    }
+  };
+
   return (
     <div>
       <div className="App">
+        <Menu onClick={onMenuClick} selectable={false} mode="horizontal" items={items}/>
         <TopBar onAdd={onAdd} accountList={clonedList} onSearch={onSearch}/>
         <AccountList onDelete={deleteAccount} accountList={accountList}/>
       </div>

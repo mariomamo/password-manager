@@ -1,0 +1,15 @@
+.container {
+    flex: 1;
+    flexDirection: "row";
+}
+
+.addButton {
+    flex: 1;
+    margin: 10
+}
+
+.search {
+    width: "80%";
+    margin: 10;
+    flex: 1
+}

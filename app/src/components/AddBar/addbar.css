@@ -1,0 +1,12 @@
+.add-bar {
+    max-width: 800px;
+}
+
+.add-button .ant-btn-primary {
+    font-weight: bold;
+    font-size: 20px;
+    height: auto;
+    color: #fff;
+    background: rgb(55, 182, 55);
+    border-color: rgb(55, 182, 55);
+}

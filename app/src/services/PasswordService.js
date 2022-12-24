@@ -22,7 +22,7 @@ class PasswordService {
             md: forge.md.sha256.create(),
         }))
         try {
-            window.Neutralino.filesystem.writeFile(this.secretsPath + "/" + accountName, encryptedPassword)
+            window.Neutralino.filesystem.writeFile(this.secretsPath + "/" + accountName, encryptedPassword);
             return {success: true};
         } catch (error) {
             return {success: false, message: 'There was an error while creating ' + accountName + ' account'};
@@ -48,9 +48,29 @@ class PasswordService {
         return accountNames;
     }
 
-    async getPassword(accountName) {
-        const privateKey = forge.pki.privateKeyFromPem(await window.Neutralino.filesystem.readFile(this.privateKeyPath));
+    async getAccountAndSecretsList() {
+        const accounts = [];
+        const files = await window.Neutralino.filesystem.readDirectory(this.secretsPath);
+        await Promise.all(files.map(async file => {
+            if (file.entry !== '.' && file.entry !== '..') {
+                const account = {
+                    account: file.entry,
+                    secret: await this.getEncryptedPassword(file.entry)
+                }
+                accounts.push(account);
+            }
+        }));
+        return accounts;
+    }
+
+    async getEncryptedPassword(accountName) {
         const encryptedPassword = await window.Neutralino.filesystem.readFile(this.secretsPath + '/' + accountName);
+        return encryptedPassword;
+    }
+
+    async getDecryptedPassword(accountName) {
+        const privateKey = forge.pki.privateKeyFromPem(await window.Neutralino.filesystem.readFile(this.privateKeyPath));
+        const encryptedPassword = await this.getEncryptedPassword(accountName);
         const decryptedPassword = forge.util.decodeUtf8(
             privateKey.decrypt(forge.util.decode64(encryptedPassword), this.padding, {
               md: forge.md.sha256.create(),

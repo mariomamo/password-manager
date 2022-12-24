@@ -8,7 +8,7 @@ const useListItemHook = ({onDelete, accountName})=> {
     }
 
     const copyPassword = () => {
-        passwordService.getPassword(accountName)
+        passwordService.getDecryptedPassword(accountName)
         .then(decryptedPassword => {
             window.Neutralino.clipboard.writeText(decryptedPassword);
             message.success('Password for ' + accountName + ' copied to clipboard!', 1)
