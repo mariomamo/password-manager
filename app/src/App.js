@@ -37,7 +37,7 @@ function App() {
   }
 
   const onAdd = (accountName, secret) => {
-    passwordService.add(accountName, secret)
+    passwordService.addAccount(accountName, secret)
     .then((result) => {
       if (result.success) {
         message.success('Account ' + accountName + ' added!', 2);
@@ -84,8 +84,15 @@ function App() {
 
   const onMenuClick = (e)=> {
     if (e.key == "export") {
-      importExportFileSystemService.export()
-      .then((result) => {
+      doExport();
+    } else {
+      doImport();
+    }
+  };
+
+  const doExport = ()=> {
+    importExportFileSystemService.export()
+      .then(result => {
         if (result.success) {
           message.success('Export completed!', 2);
         } else {
@@ -95,8 +102,26 @@ function App() {
       .catch((error) => {
         message.error('There was an error while exporting accounts', 2);
       });
-    }
-  };
+  }
+
+  const doImport = ()=> {
+    importExportFileSystemService.import()
+      .then(result => {
+        if (result.success) {
+          message.success('Import completed!', 2);
+        } else {
+          if (result.status != "ABORT") {
+            message.error(result.message, 2);
+          }
+        }
+        loadAccounts();
+        console.log("Import completed! ", result);
+      })
+      .catch(error => {
+        message.error('There was an error while importing accounts', 2);
+        console.log(error);
+      });
+  }
 
   return (
     <div>

@@ -9,24 +9,40 @@ class PasswordService {
         this.padding = "RSAES-OAEP";
     }
 
-    async add(accountName, plainText) {
-        const files = (await window.Neutralino.filesystem.readDirectory(this.secretsPath)).map(element => element.entry);
-        if (files.includes(accountName)) {
+    async addAccount(accountName, plainText) {
+        if (await this.checkIfAccountExists(accountName)) {
             return {success: false, message: "This account already exist"};
         }
+
         // File does not exsist, I can write it
         const publicKey = forge.pki.publicKeyFromPem(await window.Neutralino.filesystem.readFile(this.publicKeyPath));
 
         const encryptedPassword = forge.util.encode64(
             publicKey.encrypt(forge.util.encodeUtf8(plainText), this.padding, {
             md: forge.md.sha256.create(),
-        }))
+        }));
         try {
             window.Neutralino.filesystem.writeFile(this.secretsPath + "/" + accountName, encryptedPassword);
             return {success: true};
         } catch (error) {
-            return {success: false, message: 'There was an error while creating ' + accountName + ' account'};
+            return {success: false, message: "There was an error while creating " + accountName + " account"};
         }
+    }
+
+    async addAccounts(accountList) {
+        var result = {success: true};
+        for (const account of accountList) {
+            try {
+                if (await this.checkIfAccountExists(account.account)) {
+                    result = {success: false, message: "Some accounts already exists"};
+                } else {
+                    await window.Neutralino.filesystem.writeFile(this.secretsPath + "/" + account.account, account.secret);
+                }
+            } catch (error) {
+                result = {success: false, message: "There was an error while creating some accounts"};
+            }
+        }
+        return result;
     }
     
     delete(accountName) {
@@ -48,7 +64,7 @@ class PasswordService {
         return accountNames;
     }
 
-    async getAccountAndSecretsList() {
+    async getAllAccountAndSecretsList() {
         const accounts = [];
         const files = await window.Neutralino.filesystem.readDirectory(this.secretsPath);
         await Promise.all(files.map(async file => {
@@ -87,6 +103,13 @@ class PasswordService {
             binary += String.fromCharCode(bytes[i]);
         }
         return window.btoa(binary);
+    }
+
+    async checkIfAccountExists(accountName) {
+        const files = (await window.Neutralino.filesystem.readDirectory(this.secretsPath)).map(element => element.entry);
+        if (files.includes(accountName)) {
+            return true;
+        }
     }
 }
 

@@ -9,6 +9,7 @@
   "nativeAllowList": [
     "app.*",
     "filesystem.*",
+    "os.*",
     "clipboard.*"
   ],
   "modes": {
