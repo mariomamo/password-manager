@@ -11,7 +11,7 @@ class PasswordService {
 
     async addAccount(accountName, plainText) {
         if (await this.checkIfAccountExists(accountName)) {
-            return {success: false, message: "This account already exist"};
+            return {status: "ERROR", message: "This account already exist"};
         }
 
         // File does not exsist, I can write it
@@ -23,23 +23,23 @@ class PasswordService {
         }));
         try {
             window.Neutralino.filesystem.writeFile(this.secretsPath + "/" + accountName, encryptedPassword);
-            return {success: true};
+            return {status: "SUCCESS"};
         } catch (error) {
-            return {success: false, message: "There was an error while creating " + accountName + " account"};
+            return {status: "ERROR", message: "There was an error while creating " + accountName + " account"};
         }
     }
 
     async addAccounts(accountList) {
-        var result = {success: true};
+        var result = {status: "SUCCESS"};
         for (const account of accountList) {
             try {
                 if (await this.checkIfAccountExists(account.account)) {
-                    result = {success: false, message: "Some accounts already exists"};
+                    result = {status: "WARNING", message: "Some accounts already exists and will be ignored"};
                 } else {
                     await window.Neutralino.filesystem.writeFile(this.secretsPath + "/" + account.account, account.secret);
                 }
             } catch (error) {
-                result = {success: false, message: "There was an error while creating some accounts"};
+                result = {status: "ERROR", message: "There was an error while creating some accounts"};
             }
         }
         return result;
