@@ -43,11 +43,11 @@ export class RemotePasswordService {
             body: JSON.stringify({"name": accountName, "secret": encryptedPassword})
         };
         var data = await fetch(putCredentialUrl, requestOptions);
-        if (data.status == 200) {
+        if (data.status === 200) {
             return {status: "SUCCESS"};
-        } else if (data.status == 500) {
+        } else if (data.status === 500) {
             return {status: "ERROR", message: "This account already exist"};
-        } else if (data.status == 401) {
+        } else if (data.status === 401) {
             return {status: "UNAUTHORIZED", message: "Unauthorized"};
         } else {
             return {status: "ERROR", message: "There was an error while creating " + accountName + " account"};
@@ -64,9 +64,9 @@ export class RemotePasswordService {
                     body: JSON.stringify({"name": account.account, "secret": account.secret})
                 };
                 var data = await fetch(putCredentialUrl, requestOptions);
-                if (data.status == 500) {
+                if (data.status === 500) {
                     result = {status: "WARNING", message: "Some accounts already exists and will be ignored"};
-                } else if (data.status == 401) {
+                } else if (data.status === 401) {
                     result = {status: "UNAUTHORIZED", message: "Unauthorized"};
                     break;
                 } else {
@@ -87,9 +87,9 @@ export class RemotePasswordService {
         };
 
         var data = await fetch(deleteCredentialUrl, requestOptions);
-        if (data.status == 200) {
+        if (data.status === 200) {
             return {status: "SUCCESS"};
-        } else if (data.status == 401) {
+        } else if (data.status === 401) {
             return {status: "UNAUTHORIZED", message: "Unauthorized"};
         } else {
             return {status: "ERROR", message: "There was an error while deleting account " + accountName};
@@ -101,7 +101,7 @@ export class RemotePasswordService {
     }
 
     checkUnauthorizedException(data) {
-        if (data.status == 401) {
+        if (data.status === 401) {
             this.token = null;
             throw new UnauthorizedException("Unauthorized");
         }
@@ -145,7 +145,7 @@ export class RemotePasswordService {
             };
     
             var data = await fetch(getCredentialUrl, requestOptions);
-            if (data.status == 401) {
+            if (data.status === 401) {
                 throw new UnauthorizedException();
             }
             return data.text();
@@ -160,7 +160,7 @@ export class RemotePasswordService {
         const encryptedPassword = await this.getEncryptedPassword(accountName);
         const decryptedPassword = forge.util.decodeUtf8(
             privateKey.decrypt(forge.util.decode64(encryptedPassword), this.padding, {
-              md: forge.md.sha256.create(),
+                md: forge.md.sha256.create(),
             })
         );
         return decryptedPassword;

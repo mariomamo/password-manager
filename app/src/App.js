@@ -15,7 +15,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const loadAccounts = () => {
+  const loadAccounts = (isFirstLogin) => {
     passwordService.getAccountList()
     .then(accountList => {
       setAccountList(accountList);
@@ -24,7 +24,9 @@ function App() {
     .catch(e => {
       if (e instanceof UnauthorizedException) {
         setIsModalOpen(true);
-        message.error("Unauthorized! please log again", 2);
+        if (!isFirstLogin) {
+          message.error("Unauthorized! please log again", 2);
+        }
       } else {
         message.error('There was an error while loading accounts', 2);
       }
@@ -38,6 +40,9 @@ function App() {
       if (result.status == "SUCCESS") {
         message.success('Account ' + accountName + ' removed!', 2);
         loadAccounts();
+      } else if (result.status == "UNAUTHORIZED") {
+        message.error("Unauthorized! please log again", 2);
+        openLoginPopup();
       } else {
         message.error(result.message, 2);
         console.log("Error: " + JSON.stringify(result.message));
@@ -97,11 +102,7 @@ function App() {
   }
 
   useEffect(() => {
-    if (passwordService.constructor.name == "RemotePasswordService") {
-      setIsModalOpen(true);
-    } else {
-      loadAccounts();
-    }
+    loadAccounts(true);
   }, [])
 
   const items = [
@@ -139,6 +140,9 @@ function App() {
       .then(result => {
         if (result.status == "SUCCESS") {
           message.success('Export completed!', 2);
+        } else if (result.status == "UNAUTHORIZED") {
+          message.error("Unauthorized! please log again", 2);
+          openLoginPopup();
         } else if (result.status == "ERROR") {
           message.error('There was an error while exporting accounts', 2);
         }
@@ -155,6 +159,9 @@ function App() {
           message.success('Import completed!', 2);
         } else if (result.status == "WARNING") {
           message.warning(result.message, 2);
+        } else if (result.status == "UNAUTHORIZED") {
+          message.error("Unauthorized! please log again", 2);
+          openLoginPopup();
         } else if (result.status == "ERROR") {
           message.error(result.message, 2);
         }
@@ -172,7 +179,10 @@ function App() {
       <div className="App">
         <Menu onClick={onMenuClick} selectable={false} mode="horizontal" items={items}/>
         <TopBar onAdd={onAdd} accountList={clonedList} onSearch={onSearch}/>
-        <AccountList onDelete={deleteAccount} accountList={accountList}/>
+        <AccountList onDelete={deleteAccount} accountList={accountList} onAuthError={() => {
+          message.error("Unauthorized! please log again", 2);
+          openLoginPopup();
+        }}/>
       </div>
 
       <Modal title="Login" open={isModelOpen} onOk={login} cancelButtonProps={{ style: { display: 'none' } }} closable={false}>

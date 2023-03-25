@@ -1,4 +1,5 @@
 import { passwordService } from './PasswordService';
+import { UnauthorizedException } from '../../exceptions/UnauthorizedException.js';
 
 class ImportExportFileSystemService {
     constructor(passwordService) {
@@ -39,7 +40,11 @@ class ImportExportFileSystemService {
             await window.Neutralino.filesystem.writeFile(fileToSave, JSON.stringify(accounts));
         } catch(error) {
             console.log(error);
-            return {status: "ERROR", message: 'There was an error while exporting files'};
+            if (error instanceof UnauthorizedException) {
+                return {status: "UNAUTHORIZED", message: "Unauthorized"};
+            } else {
+                return {status: "ERROR", message: 'There was an error while exporting files'};
+            }
         }
         return {status: "SUCCESS"};
     }

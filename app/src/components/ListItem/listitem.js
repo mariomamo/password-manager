@@ -4,9 +4,9 @@ import { DeleteFilled } from '@ant-design/icons';
 import { Popconfirm } from 'antd';
 import useListItemHook from './listitemhook';
 
-const ListItem = ({onDelete, accountName})=> {
+const ListItem = ({onDelete, accountName, onAuthError})=> {
 
-    const {removeAccount, copyPassword, editAccount} = useListItemHook({onDelete, accountName});
+    const {removeAccount, copyPassword, editAccount} = useListItemHook({onDelete, accountName, onAuthError});
 
     return (
         accountName !== "" && accountName !== undefined &&
