@@ -1,0 +1,38 @@
+{
+  "applicationId": "js.neutralino.zero",
+  "version": "1.0.0",
+  "defaultMode": "window",
+  "documentRoot": "/app/build/",
+  "url": "/",
+  "enableServer": true,
+  "enableNativeAPI": true,
+  "nativeAllowList": [
+    "app.*",
+    "filesystem.*",
+    "os.*",
+    "clipboard.*"
+  ],
+  "modes": {
+    "window": {
+      "title": "password manager",
+      "width": 800,
+      "height": 500,
+      "minWidth": 400,
+      "minHeight": 200,
+      "icon": "/app/public/logo192.png",
+      "enableInspector": false
+    }
+  },
+  "cli": {
+    "binaryName": "password manager",
+    "resourcesPath": "/app/build/",
+    "extensionsPath": "/extensions/",
+    "clientLibrary": "/app/build/neutralino.js",
+    "binaryVersion": "4.7.0",
+    "clientVersion": "3.6.0",
+    "frontendLibrary": {
+      "patchFile": "/app/public/index.html",
+      "devUrl": "http://localhost:3000"
+    }
+  }
+}

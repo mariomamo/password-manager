@@ -1,0 +1,5 @@
+{
+  "privateKeyPath": "C:/Users/Mario/.ssh/secure_store_private_key.pem",
+  "publicKeyPath": "C:/Users/Mario/.ssh/secure_store_public_key.pem",
+  "encriptedKeyPath": "./keys"
+}
