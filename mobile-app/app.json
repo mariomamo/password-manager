@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "password manager",
+    "slug": "password manager",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "password manager"
+}

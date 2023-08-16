@@ -4,7 +4,6 @@ Password manager is a free and open source project for manage passwords.
 
 ## :white_check_mark: To do list
 Following there is a to do list of functionalities that will be added in future
-* **import/export**: The user can export a json with all the passwords (encrypted of course) and can import them on another pc. The passwords imported will be merged with those already existing;
 * **secret keys generator**: If the application not found the encryption/decryption key (or keys) a wizard show up for generating them;
 * **password generator**: Generate random passwords;
 * **read conf from file**: Create a config file or windows for settings;
@@ -20,9 +19,7 @@ Go to the project root folder and run
   
 
 ```bash
-
 npm install -g @neutralinojs/neu
-
 ```
 
   
@@ -34,9 +31,7 @@ go to `/app` folder and run
   
 
 ```bash
-
 npm install
-
 ```
 
   
@@ -46,9 +41,7 @@ npm install
 Run this command in `/app` folder
 
 ```bash
-
 npm run build
-
 ```
 
 :four: Create public and private keys
@@ -64,9 +57,7 @@ When you add a key this will be added inside `secrets` folder and you can save i
 Move to `/app` and run this command
 
 ```bash
-
 npm start
-
 ```
 
   
@@ -76,9 +67,7 @@ npm start
 Go back to the project root folder and run this command
 
 ```bash
-
 neu run --frontend-lib-dev
-
 ```
 
   
