@@ -2,7 +2,7 @@ import forge from "node-forge"
 import { Buffer } from "buffer";
 import { UnauthorizedException } from '../../exceptions/UnauthorizedException.js';
 
-const baseUrl = "https://xxx";
+const baseUrl = "http://localhost:41062/www";
 const putCredentialUrl = baseUrl + "/passwordmanager/put.php";
 const getCredentialUrl = baseUrl + "/passwordmanager/get.php";
 const getCredentialsList = baseUrl + "/passwordmanager/getCredentialsList.php";
