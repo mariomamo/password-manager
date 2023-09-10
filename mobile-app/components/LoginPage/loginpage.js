@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from 'react-native';
 import { TextInput } from 'react-native';
 import { Text, View  } from 'react-native';
-import useLoignPageHook from './loginpagehook';
+import useLoginPageHook from './loginpagehook';
 
-export default function LoginPage ({navigation}) {
+export default function LoginPage ({route, navigation}) {
 
-    const {setUsername, setPassword, login} = useLoignPageHook({navigation});
+    const {setUsername, setPassword, login} = useLoginPageHook({route, navigation});
 
     return (
         <View>

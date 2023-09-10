@@ -12,17 +12,20 @@ const geTokenUrl = baseUrl + "/getJWT.php";
 
 export class RemotePasswordService {
 
-    constructor(storageService) {
+    constructor(encriptedKeyPath, privateKeyPath, publicKeyPath, storageService) {
+        this.secretsPath = encriptedKeyPath;
+        this.privateKeyPath = privateKeyPath;
+        this.publicKeyPath = publicKeyPath;
         this.storageService = storageService;
         this.padding = "RSAES-OAEP";
     }
 
-    setJwtToken = (jwt_token) => {
+    setJwtToken(jwt_token) {
         this.token = jwt_token;
         if (jwt_token) this.storageService.set("jwt_token", jwt_token);
     }
 
-    setRefreshToken = (refresh_token) => {
+    setRefreshToken(refresh_token) {
         this.refresh_token = refresh_token;
         if (refresh_token) this.storageService.set("refresh_token", refresh_token);
     }
@@ -35,13 +38,13 @@ export class RemotePasswordService {
         };
         var data = await fetch(geTokenUrl, requestOptions);
         if (data.status != 401 && data.status != 403) {
-            await data.json().then(json => {
-                this.setJwtToken(json.token);
-                this.setRefreshToken(json.refresh_token);
+            await data.json().then(async json => {
+                await this.setJwtToken(json.token);
+                await this.setRefreshToken(json.refresh_token);
             });
         } else {
-            this.setJwtToken(null);
-            this.setRefreshToken(null);
+            await this.setJwtToken(null);
+            await this.setRefreshToken(null);
             throw new UnauthorizedException("Unauthorized");
         }
     }
@@ -53,9 +56,9 @@ export class RemotePasswordService {
         };
         var data = await fetch(geTokenUrl, requestOptions);
         if (data.status != 401 && data.status != 403) {
-            await data.json().then(json => {
-                this.setJwtToken(json.token);
-                this.setRefreshToken(json.refresh_token);
+            await data.json().then(async json => {
+                await this.setJwtToken(json.token);
+                await this.setRefreshToken(json.refresh_token);
             });
         } else {
             return {status: "UNAUTHORIZED", message: "Unauthorized"};
@@ -64,7 +67,7 @@ export class RemotePasswordService {
     }
 
     async addAccount(accountName, plainText) {
-        const publicKey = forge.pki.publicKeyFromPem(await this.storageService.get("PublicKey"));
+        const publicKey = forge.pki.publicKeyFromPem(await window.Neutralino.filesystem.readFile(this.publicKeyPath));
 
         const encryptedPassword = forge.util.encode64(
             publicKey.encrypt(forge.util.encodeUtf8(plainText), this.padding, {
@@ -234,7 +237,7 @@ export class RemotePasswordService {
     }
 
     async getDecryptedPassword(accountName) {
-        const privateKey = forge.pki.privateKeyFromPem(await this.storageService.get("PrivateKey"));
+        const privateKey = forge.pki.privateKeyFromPem(await window.Neutralino.filesystem.readFile(this.privateKeyPath));
         const encryptedPassword = await this.getEncryptedPassword(accountName);
         const decryptedPassword = forge.util.decodeUtf8(
             privateKey.decrypt(forge.util.decode64(encryptedPassword), this.padding, {

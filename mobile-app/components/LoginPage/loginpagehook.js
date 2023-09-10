@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { passwordService } from '../../services/PasswordService/PasswordService';
 import { storageService } from '../../services/StorageService/StorageService';
 
-const useLoignPageHook = ({navigation})=> {
+const useLoginPageHook = ({route, navigation})=> {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        // TODO: Loader
+        // TODO: Loader + demanda il controllo al RemotePasswordService
         (async function checkJwtToken() {
-            const jwt_token = await storageService.get("jwt_token");
-            if (jwt_token) {
-                passwordService.setToken(jwt_token);
+            if (route.params && route.params.isLogout) {
+                passwordService.logOut();
+                navigation.replace("Login");
+            } else if (await passwordService.isLogged()) {
                 navigation.replace("Home");
             }
           })();
@@ -24,7 +25,7 @@ const useLoignPageHook = ({navigation})=> {
                 if (data.status != "UNAUTHORIZED") {
                     setUsername("");
                     setPassword("");
-                    await storageService.set("jwt_token", data.data);
+                    //TODO: Use constants
                     navigation.replace("Home");
                 } else {
                     // message.error("Wrong credentials, retry", 2);
@@ -41,4 +42,4 @@ const useLoignPageHook = ({navigation})=> {
     return {setUsername, setPassword, login};
 }
 
-export default useLoignPageHook;
+export default useLoginPageHook;

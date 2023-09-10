@@ -102,7 +102,13 @@ function App() {
   }
 
   useEffect(() => {
-    loadAccounts(true);
+    (async function checkJwtToken() {
+      if(await passwordService.isLogged()) {
+        loadAccounts(true);
+      } else {
+        openLoginPopup();
+      }
+    })();
   }, [])
 
   const items = [
@@ -124,12 +130,21 @@ function App() {
           ],
         }
       ],
+    },
+    {
+      label: 'Logout',
+      key: 'logout'
     }
   ];
 
   const onMenuClick = (e)=> {
     if (e.key == "export") {
       doExport();
+    } else if (e.key == "logout") {
+      passwordService.logOut();
+      setAccountList([]);
+      setClonedList([]);
+      openLoginPopup();
     } else {
       doImport();
     }

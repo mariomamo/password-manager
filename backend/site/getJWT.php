@@ -4,10 +4,18 @@
   include_once("JwtService.php");
   include_once("cors.php");
 
+  if ('GET' != $_SERVER['REQUEST_METHOD'] && 'POST' != $_SERVER['REQUEST_METHOD'] ) {
+      header('Allow: GET, POST');
+      header('HTTP/1.1 405 Method Not Allowed');
+      header('Content-Type: text/plain');
+      echo "only allow get and post";
+      exit;
+    }
+
   header('Content-Type: application/json'); 
   header('Access-Control-Allow-Origin: *');
   header('Access-Control-Allow-Credentials: true');
-  header("Access-Control-Allow-Methods: GET");
+  header("Access-Control-Allow-Methods: GET, POST");
   header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
   
   $jwtService = new JwtService();

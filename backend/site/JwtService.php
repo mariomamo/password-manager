@@ -71,8 +71,8 @@ class JwtService {
     }
 
     private function generate_jwt($username) {
-        $eightHour = time() + 60*60*8;
-        $jwt_body = json_encode(["user" => $username, "exp" => $eightHour]);
+        $tenMinute = time() + 60*10;
+        $jwt_body = json_encode(["user" => $username, "exp" => $tenMinute]);
         return $this -> craft_jwt_token($username, $jwt_body);
     }
 
