@@ -10,7 +10,8 @@
     "app.*",
     "filesystem.*",
     "os.*",
-    "clipboard.*"
+    "clipboard.*",
+    "storage.*"
   ],
   "modes": {
     "window": {
@@ -19,7 +20,7 @@
       "height": 500,
       "minWidth": 400,
       "minHeight": 200,
-      "icon": "/app/public/logo192.png",
+      "icon": "/app/public/cyber.png",
       "enableInspector": false
     }
   },

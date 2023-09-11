@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { passwordService } from '../../services/PasswordService/PasswordService';
-import { storageService } from '../../services/StorageService/StorageService';
+import FingerprintScanner from 'react-native-fingerprint-scanner';
 
 const useLoginPageHook = ({route, navigation})=> {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        // TODO: Loader + demanda il controllo al RemotePasswordService
+        // TODO: Loader
         (async function checkJwtToken() {
             if (route.params && route.params.isLogout) {
                 passwordService.logOut();
-                navigation.replace("Login");
+                navigation.replace("Login")
             } else if (await passwordService.isLogged()) {
-                navigation.replace("Home");
+                // navigation.replace("Home");
+                FingerprintScanner.authenticate({description: "Authentication required"})
+                .then(() => navigation.replace("Home"))
+                .error(error => console.log("FINGERPRINT ERROR: " + error));
             }
           })();
     }, [])

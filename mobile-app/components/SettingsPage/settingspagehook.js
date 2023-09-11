@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { storageService } from '../../services/StorageService/StorageService';
+import { StorageService } from '../../services/StorageService/StorageService';
 
 const useSettingsPageHook = ()=> {
     const [server, setServer] = useState("");
     const [PublicKey, setPublicKey] = useState("");
     const [PrivateKey, setPrivateKey] = useState("");
+    const [storageService] = useState(new StorageService());
 
     useEffect(() => {        
         (async function f() {

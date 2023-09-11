@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import useAddPasswordHook from "./addpasswordhook";
 import { Button, View } from "react-native";
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
 import style from './addpassword-css';
 
-export default function AddPasswordPage({accountList, onSearch, navigation}) {
-    const {setAccountName, setSecret, addAccount} = useAddPasswordHook({accountList, onSearch, navigation});
+export default function AddPasswordPage({navigation}) {
+    const {setAccountName, setSecret, addAccount} = useAddPasswordHook({navigation});
 
     return (
         <View>

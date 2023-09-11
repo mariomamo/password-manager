@@ -84,16 +84,18 @@ function App() {
       if (result.status == "SUCCESS") {
         message.success('Account ' + accountName + ' added!', 2);
         loadAccounts();
-      } else if (result.status == "UNAUTHORIZED") {
-        message.error("Unauthorized! please log again", 2);
-        openLoginPopup();
       } else {
         message.error(result.message, 2);
         console.log("Error: " + JSON.stringify(result.message));
       }
     }).catch(error => {
-      message.error('There was an error while creating ' + accountName + ' account', 2);
-      console.log("Error: " + error);
+      if (error instanceof UnauthorizedException) {
+        message.error("Unauthorized! please log again", 2);
+        openLoginPopup();
+      } else {
+        message.error('There was an error while creating ' + accountName + ' account', 2);
+        console.log("Error: " + error);
+      }
     });
   }
 

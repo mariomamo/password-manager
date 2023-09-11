@@ -12,8 +12,9 @@ const geTokenUrl = baseUrl + "/getJWT.php";
 
 export class RemotePasswordService {
 
-    constructor(storageService) {
+    constructor(storageService, keyProviderService) {
         this.storageService = storageService;
+        this.keyProviderService = keyProviderService;
         this.padding = "RSAES-OAEP";
     }
 
@@ -63,17 +64,38 @@ export class RemotePasswordService {
         return {status: "SUCCESS", data: {"token": this.token, "refresh_token": this.refresh_token}};
     }
 
+    async functionWithRefreshToken(callback) {
+        return callback()
+        .catch(async ex => {
+            if (ex instanceof UnauthorizedException) {
+                await this.refreshTokens();
+                return callback().catch(ex => {
+                    if (ex instanceof UnauthorizedException) {
+                        this.token = null;
+                        this.refresh_token = null;
+                        this.storageService.remove("jwt_token");
+                        this.storageService.remove("refresh_token");
+                    }
+                    throw ex;
+                });
+            }
+        });
+    }
+
     async addAccount(accountName, plainText) {
-        const publicKey = forge.pki.publicKeyFromPem(await this.storageService.get("PublicKey"));
+        const publicKey = await this.keyProviderService.getPublicKey();
 
         const encryptedPassword = forge.util.encode64(
             publicKey.encrypt(forge.util.encodeUtf8(plainText), this.padding, {
             md: forge.md.sha256.create(),
         }));
+        return this.functionWithRefreshToken(() => this.addAccountInternal(accountName, encryptedPassword));
+    }
 
+    async addAccountInternal(accountName, encryptedPassword) {
         const requestOptions = {
             method: 'POST',
-            headers: {"Authorization": "Bearer " + await this.token, "Content-Type": "application/json"},
+            headers: {"Authorization": "Bearer " + this.token, "Content-Type": "application/json"},
             body: JSON.stringify({"name": accountName, "secret": encryptedPassword})
         };
         var data = await fetch(putCredentialUrl, requestOptions);
@@ -82,13 +104,17 @@ export class RemotePasswordService {
         } else if (data.status === 500) {
             return {status: "ERROR", message: "This account already exist"};
         } else if (data.status === 401 || data.status === 403) {
-            return {status: "UNAUTHORIZED", message: "Unauthorized"};
+            throw new UnauthorizedException("Unauthorized");
         } else {
             return {status: "ERROR", message: "There was an error while creating " + accountName + " account"};
         }
     }
 
     async addAccounts(accountList) {
+        return this.functionWithRefreshToken(() => this.addAccountsInternal(accountList));
+    }
+
+    async addAccountsInternal(accountList) {
         var result = {status: "SUCCESS"};
         for (const account of accountList) {
             try {
@@ -101,8 +127,7 @@ export class RemotePasswordService {
                 if (data.status === 500) {
                     result = {status: "WARNING", message: "Some accounts already exists and will be ignored"};
                 } else if (data.status === 401 || data.status === 403) {
-                    result = {status: "UNAUTHORIZED", message: "Unauthorized"};
-                    break;
+                    throw new UnauthorizedException("Unauthorized");
                 } else {
                     result = {status: "ERROR", message: "There was an error while creating some accounts"};
                 }
@@ -112,19 +137,22 @@ export class RemotePasswordService {
         }
         return result;
     }
-    
+
     async delete(accountName) {
+        return this.functionWithRefreshToken(() => this.deleteInternal(accountName));
+    }
+    
+    async deleteInternal(accountName) {
         const requestOptions = {
             method: 'DELETE',
-            headers: {"Authorization": "Bearer " + await this.token},
+            headers: {"Authorization": "Bearer " + this.token},
             body: JSON.stringify({"name": accountName})
         };
-
         var data = await fetch(deleteCredentialUrl, requestOptions);
         if (data.status === 200) {
             return {status: "SUCCESS"};
-        } else if (data.status === 401) {
-            return {status: "UNAUTHORIZED", message: "Unauthorized"};
+        } else if (data.status === 401 || data.status === 403) {
+            throw new UnauthorizedException("Unauthorized");
         } else {
             return {status: "ERROR", message: "There was an error while deleting account " + accountName};
         }
@@ -132,22 +160,6 @@ export class RemotePasswordService {
     
     edit(oldName, newName) {
         // TODO
-    }
-
-    async functionWithRefreshToken(callback) {
-        return callback()
-        .catch(async ex => {
-            if (ex instanceof UnauthorizedException) {
-                await this.refreshTokens();
-                return callback().catch(ex => {
-                    if (ex instanceof UnauthorizedException) {
-                        this.token = null;
-                        this.refresh_token = null;
-                    }
-                    throw ex;
-                });
-            }
-        });
     }
 
     async getAccountList() {
@@ -234,7 +246,8 @@ export class RemotePasswordService {
     }
 
     async getDecryptedPassword(accountName) {
-        const privateKey = forge.pki.privateKeyFromPem(await this.storageService.get("PrivateKey"));
+        const privateKey = await this.keyProviderService.getPrivateKey();
+        console.log(privateKey);
         const encryptedPassword = await this.getEncryptedPassword(accountName);
         const decryptedPassword = forge.util.decodeUtf8(
             privateKey.decrypt(forge.util.decode64(encryptedPassword), this.padding, {

@@ -24,7 +24,7 @@ function searchApiToken($token) {
 
 function CheckCredentials($username, $password) {
     $connessione = getConnection();
-    $stmt = $connessione -> prepare("SELECT * FROM `user` WHERE username = ? and password = MD5(?);");
+    $stmt = $connessione -> prepare("SELECT * FROM `user` WHERE username = ? and password = SHA1(?);");
     $stmt -> bind_param("ss", $username, $password);
     $stmt -> execute();
 
@@ -48,4 +48,4 @@ function getHeader($header) {
 function getAuthorizationHeader() {
 	return substr(getHeader("Authorization"), 7);
 }
-?>
+?>
