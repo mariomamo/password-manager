@@ -7,13 +7,12 @@ const useLoginPageHook = ({route, navigation})=> {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        // TODO: Loader
         (async function checkJwtToken() {
             if (route.params && route.params.isLogout) {
                 passwordService.logOut();
                 navigation.replace("Login")
             } else if (await passwordService.isLogged()) {
-                // navigation.replace("Home");
+                //TODO: Auth service
                 FingerprintScanner.authenticate({description: "Authentication required"})
                 .then(() => navigation.replace("Home"))
                 .error(error => console.log("FINGERPRINT ERROR: " + error));
