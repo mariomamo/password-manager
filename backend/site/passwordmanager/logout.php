@@ -1,5 +1,5 @@
 <?php
-	include_once("../security.php");
+    include_once("../security.php");
     include_once("../JwtService.php");
     include_once("database.php");
     include_once("../DatabaseService.php");
@@ -13,7 +13,7 @@
       exit;
     }
 
-	header('Content-Type: application/json'); 
+    header('Content-Type: application/json'); 
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Credentials: true');
     header("Access-Control-Allow-Methods: POST");
