@@ -65,14 +65,14 @@ class JwtService {
     }
 
     private function create_jwt_and_refresh_token($username, $session_id) {
-        $jwt_token = $this -> generate_jwt($username);
+        $jwt_token = $this -> generate_jwt($username, $session_id);
         $refresh_token = $this -> generate_refresh_token($username, $session_id);
         return json_encode(["token" => $jwt_token, "refresh_token" => $refresh_token]);
     }
 
-    private function generate_jwt($username) {
+    private function generate_jwt($username, $session_id) {
         $tenMinute = time() + 60*10;
-        $jwt_body = json_encode(["user" => $username, "exp" => $tenMinute]);
+        $jwt_body = json_encode(["user" => $username, "exp" => $tenMinute, "session_id" => $session_id]);
         return $this -> craft_jwt_token($username, $jwt_body);
     }
 
