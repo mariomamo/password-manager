@@ -65,16 +65,17 @@ export class RemotePasswordService {
     }
 
     async functionWithRefreshToken(callback) {
-        return callback()
-        .catch(async ex => {
+        return callback().catch(async ex => {
             if (ex instanceof UnauthorizedException) {
+                console.log("First unauth");
                 await this.refreshTokens();
-                return callback().catch(ex => {
+                return callback().catch(async ex => {
                     if (ex instanceof UnauthorizedException) {
+                        console.log("Second unauth");
                         this.token = null;
                         this.refresh_token = null;
-                        this.storageService.remove("jwt_token");
-                        this.storageService.remove("refresh_token");
+                        await this.storageService.remove("jwt_token");
+                        await this.storageService.remove("refresh_token");
                     }
                     throw ex;
                 });

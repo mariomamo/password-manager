@@ -3,18 +3,24 @@ import { Button } from 'react-native';
 import { TextInput } from 'react-native';
 import { Text, View  } from 'react-native';
 import useLoginPageHook from './loginpagehook';
+import style from './loginpage-css';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 export default function LoginPage ({route, navigation}) {
 
     const {setUsername, setPassword, login} = useLoginPageHook({route, navigation});
 
     return (
-        <View>
-            <Text>Username</Text>
-            <TextInput placeholder="username" onChangeText={text => setUsername(text)}/>
-            <Text>Password</Text>
-            <TextInput secureTextEntry={true} placeholder="password" onChangeText={text => setPassword(text)}/>
-            <Button title="Login" onPress={login} />
+        <View style={style.main_page}>
+            <View style={style.container}>
+                <Text style={style.text_label}>Username</Text>
+                <TextInput style={style.text_input} placeholder="username" onChangeText={text => setUsername(text)}/>
+                <Text style={style.text_label}>Password</Text>
+                <TextInput style={style.text_input} secureTextEntry={true} placeholder="password" onChangeText={text => setPassword(text)}/>
+                <View style={style.button_container}>
+                    <Button color={style.login_button.color} title="Login" onPress={login} />
+                </View>
+            </View>
         </View>
     )
 }
