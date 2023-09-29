@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const useTopBarHook = ({accountList, onAdd, onSearch})=> {
     const [isModelOpen, setIsModalOpen] = useState(false);
@@ -27,7 +27,7 @@ const useTopBarHook = ({accountList, onAdd, onSearch})=> {
     const filter = (searchKey)=> {
         // setSearchKey(searchKey);
         var searchedList;
-        if (searchKey == "") {
+        if (searchKey === "") {
             searchedList = accountList;
         } else {
             searchedList = accountList.filter(e => e.includes(searchKey));

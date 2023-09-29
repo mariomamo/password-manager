@@ -91,7 +91,7 @@ export default function AccountsPage({navigation}) {
   ];
 
   const onMenuClick = (e)=> {
-    if (e.key == "export") {
+    if (e.key === "export") {
       doExport();
     } else {
       doImport();

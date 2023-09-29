@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-native';
 import { TextInput } from 'react-native';
-import { Text, View  } from 'react-native';
+import { Text, Button, View  } from 'react-native';
 import useLoginPageHook from './loginpagehook';
 import style from './loginpage-css';
 import { TouchableOpacity } from 'react-native-gesture-handler';

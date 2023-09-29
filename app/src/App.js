@@ -5,7 +5,7 @@ import TopBar from './components/TopBar/topbar';
 import { passwordService } from './services/PasswordService/PasswordService';
 import { importExportFileSystemService } from './services/PasswordService/ImportExportFileSystemService';
 import { useEffect, useState } from 'react';
-import { message, Menu, Button, Input, Form, Modal } from 'antd';
+import { message, Menu, Input, Form, Modal } from 'antd';
 import { UnauthorizedException } from './exceptions/UnauthorizedException';
 
 function App() {
@@ -37,10 +37,10 @@ function App() {
   const deleteAccount = (accountName) => {
     passwordService.delete(accountName)
     .then((result) => {
-      if (result.status == "SUCCESS") {
+      if (result.status === "SUCCESS") {
         message.success('Account ' + accountName + ' removed!', 2);
         loadAccounts();
-      } else if (result.status == "UNAUTHORIZED") {
+      } else if (result.status === "UNAUTHORIZED") {
         message.error("Unauthorized! please log again", 2);
         openLoginPopup();
       } else {
@@ -62,7 +62,7 @@ function App() {
     try {
       passwordService.generateToken(username, password)
       .then((status) => {
-        if (status != 401) {
+        if (status !== 401) {
           setIsModalOpen(false);
           setUsername("");
           setPassword("");
@@ -81,7 +81,7 @@ function App() {
   const onAdd = (accountName, secret) => {
     passwordService.addAccount(accountName, secret)
     .then((result) => {
-      if (result.status == "SUCCESS") {
+      if (result.status === "SUCCESS") {
         message.success('Account ' + accountName + ' added!', 2);
         loadAccounts();
       } else {
@@ -140,13 +140,14 @@ function App() {
   ];
 
   const onMenuClick = (e)=> {
-    if (e.key == "export") {
+    if (e.key === "export") {
       doExport();
-    } else if (e.key == "logout") {
-      passwordService.logOut();
-      setAccountList([]);
-      setClonedList([]);
-      openLoginPopup();
+    } else if (e.key === "logout") {
+      passwordService.logOut().then(() => {
+        setAccountList([]);
+        setClonedList([]);
+        openLoginPopup();
+      });
     } else {
       doImport();
     }
@@ -155,12 +156,12 @@ function App() {
   const doExport = ()=> {
     importExportFileSystemService.export()
       .then(result => {
-        if (result.status == "SUCCESS") {
+        if (result.status === "SUCCESS") {
           message.success('Export completed!', 2);
-        } else if (result.status == "UNAUTHORIZED") {
+        } else if (result.status === "UNAUTHORIZED") {
           message.error("Unauthorized! please log again", 2);
           openLoginPopup();
-        } else if (result.status == "ERROR") {
+        } else if (result.status === "ERROR") {
           message.error('There was an error while exporting accounts', 2);
         }
       })
@@ -172,14 +173,14 @@ function App() {
   const doImport = ()=> {
     importExportFileSystemService.import()
       .then(result => {
-        if (result.status == "SUCCESS") {
+        if (result.status === "SUCCESS") {
           message.success('Import completed!', 2);
-        } else if (result.status == "WARNING") {
+        } else if (result.status === "WARNING") {
           message.warning(result.message, 2);
-        } else if (result.status == "UNAUTHORIZED") {
+        } else if (result.status === "UNAUTHORIZED") {
           message.error("Unauthorized! please log again", 2);
           openLoginPopup();
-        } else if (result.status == "ERROR") {
+        } else if (result.status === "ERROR") {
           message.error(result.message, 2);
         }
         loadAccounts();

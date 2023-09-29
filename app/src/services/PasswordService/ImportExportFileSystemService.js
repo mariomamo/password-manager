@@ -18,7 +18,7 @@ class ImportExportFileSystemService {
     async import() {
         try {
             const fileToImport = (await window.Neutralino.os.showOpenDialog("Select file to import", this.dialogFilters))[0]
-            if (fileToImport == undefined) {
+            if (fileToImport === undefined) {
                 return {status: "ABORT", message: "Dialog closed"};
             }
             const accountsList = await window.Neutralino.filesystem.readFile(fileToImport);

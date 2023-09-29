@@ -1,6 +1,6 @@
 import forge from "node-forge"
 
-export class KeyProviderService {
+export class DesktopKeyProviderService {
 
     constructor(privateKeyPath, publicKeyPath) {
         this.privateKeyPath = privateKeyPath;
