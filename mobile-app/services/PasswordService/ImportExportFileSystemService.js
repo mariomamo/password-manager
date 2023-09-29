@@ -24,8 +24,13 @@ class ImportExportFileSystemService {
             const accountsList = await window.Neutralino.filesystem.readFile(fileToImport);
             return await passwordService.addAccounts(JSON.parse(accountsList));
         } catch (error) {
-            console.log("Error while picking file: ", error);
-            return {status: "ERROR", message: "Unknown error occurred"}
+            if (error instanceof UnauthorizedException) {
+                console.log("Unauthorized! please log again");
+                return {status: "ERROR", message: "Unauthorized"}
+            } else {
+                console.log("Error while picking file: ", error);
+                return {status: "ERROR", message: "Unknown error occurred"}
+            }
         }
     }
 

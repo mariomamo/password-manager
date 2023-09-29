@@ -1,70 +1,95 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# :key: password-manager :book:
+Password manager is a free and open source project for manage passwords.
 
-## Available Scripts
+## :white_check_mark: To do list
+Following there is a to do list of functionalities that will be added in future
+* **secret keys generator**: If the application not found the encryption/decryption key (or keys) a wizard show up for generating them;
+* **password generator**: Generate random passwords;
+* **read conf from file**: Create a config file or windows for settings;
+* **firebase**: Given an API key for a firebase account the application will be able to save pasword and read (always in crypted form) from it.
 
-In the project directory, you can run:
 
-### `npm start`
+# :gear: Install project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+:one: First of all you have to install neutralino js.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Go to the project root folder and run
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+```bash
+npm install -g @neutralinojs/neu
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+:two: Install dependencies
 
-### `npm run eject`
+go to `/app` folder and run
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+:three: Build application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run this command in `/app` folder
 
-### Code Splitting
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+:four: Create public and private keys
+This project is using public and private keys pair for encrypt and decrypt the passwords, so you have to generate and put them inside `keys` folder.
+:warning: **I strongly  advise you from generate this keys pair from a website. No one besides you must know the keys** :warning:
+When you add a key this will be added inside `secrets` folder and you can save it everywhere you want for backup purpose.  :warning: **don't lose the private key or you will not be able to read the passwords anymore** :warning:
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# :rocket: Run application locally for testing changes
 
-### Making a Progressive Web App
+:one: Run npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Move to `/app` and run this command
 
-### Advanced Configuration
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+:two: Run Neutralino
 
-### `npm run build` fails to minify
+Go back to the project root folder and run this command
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+neu run --frontend-lib-dev
+```
+
+
+
+Now you will see all the changes directly in Neutralino application
+
+# :hammer: Build executable release
+:one:
+Open `/app/public/index.html` and check that there is this script. Be sure that `%PUBLIC_URL%` is present, if you can see something like `http://localhost:xxxxx` change it to `%PUBLIC_URL%`.
+```bash
+<script  src="%PUBLIC_URL%/neutralino.js"></script>
+```
+
+:two: Build react release
+Go to `/app` folder and run
+```bash
+npm run build
+```
+
+:three: Build Neutralino app
+Go back to project root folder and run
+
+```bash
+neu build
+```

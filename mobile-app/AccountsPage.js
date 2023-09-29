@@ -6,6 +6,7 @@ import { passwordService } from './services/PasswordService/PasswordService';
 import { UnauthorizedException } from './exceptions/UnauthorizedException';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import TopBar from './components/TopBar/topbar';
+import { storageService } from './services/StorageService/StorageService';
 // import { message, Menu, Button, Input, Form, Modal } from 'antd';
 
 export default function AccountsPage({navigation}) {
@@ -31,7 +32,7 @@ export default function AccountsPage({navigation}) {
           console.log("Unauthorized! please log again");
         }
       } else {
-        // message.error('There was an error while loading a2ccounts', 2);
+        // message.error('There was an error while loading accounts', 2);
         console.log('There was an error while loading accounts');
       }
       console.log(e);
@@ -43,7 +44,9 @@ export default function AccountsPage({navigation}) {
   }
 
   const openLoginPage = () => {
-    AsyncStorage.removeItem('jwt_token').then(() => navigation.replace("Login"));
+    storageService.remove("jwt_token")
+    .then(storageService.remove("refresh_token"))
+    .then(() => navigation.replace("Login"));
   }
 
   const onAdd = (accountName, secret) => {
@@ -54,9 +57,9 @@ export default function AccountsPage({navigation}) {
     setAccountList(accountList);
   }
 
-  useEffect(() => {
-    loadAccounts(true);
-  }, [])
+  // useEffect(() => {
+  //   loadAccounts(true);
+  // }, [])
 
   useEffect(() => {
     const focusHandler = navigation.addListener('focus', () => {
@@ -88,7 +91,7 @@ export default function AccountsPage({navigation}) {
   ];
 
   const onMenuClick = (e)=> {
-    if (e.key == "export") {
+    if (e.key === "export") {
       doExport();
     } else {
       doImport();
