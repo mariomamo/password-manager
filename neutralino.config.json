@@ -10,16 +10,17 @@
     "app.*",
     "filesystem.*",
     "os.*",
-    "clipboard.*"
+    "clipboard.*",
+    "storage.*"
   ],
   "modes": {
     "window": {
       "title": "password manager",
       "width": 800,
       "height": 500,
-      "minWidth": 400,
-      "minHeight": 200,
-      "icon": "/app/public/logo192.png",
+      "minWidth": 800,
+      "minHeight": 500,
+      "icon": "/app/public/cyber.png",
       "enableInspector": false
     }
   },

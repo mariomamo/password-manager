@@ -89,8 +89,8 @@ export class RemotePasswordService {
 
         const encryptedPassword = forge.util.encode64(
             publicKey.encrypt(forge.util.encodeUtf8(plainText), this.padding, {
-            md: forge.md.sha256.create(),
-        }));
+                md: forge.md.sha256.create(),
+            }));
         return this.functionWithRefreshToken(() => this.addAccountInternal(accountName, encryptedPassword));
     }
 
@@ -143,7 +143,7 @@ export class RemotePasswordService {
     async delete(accountName) {
         return this.functionWithRefreshToken(() => this.deleteInternal(accountName));
     }
-    
+
     async deleteInternal(accountName) {
         const requestOptions = {
             method: 'DELETE',
@@ -159,7 +159,7 @@ export class RemotePasswordService {
             return {status: "ERROR", message: "There was an error while deleting account " + accountName};
         }
     }
-    
+
     edit(oldName, newName) {
         // TODO
     }
@@ -167,7 +167,7 @@ export class RemotePasswordService {
     async getAccountList() {
         return this.functionWithRefreshToken(() => this.getAccountListInternal());
     }
-    
+
     async getAccountListInternal() {
         try {
             const requestOptions = {
@@ -201,7 +201,7 @@ export class RemotePasswordService {
             if (data.status === 401 || data.status === 403) {
                 throw new UnauthorizedException("Unauthorized");
             }
-        }        
+        }
     }
 
     async getEncryptedPassword(accountName) {
@@ -214,7 +214,7 @@ export class RemotePasswordService {
                 method: 'POST',
                 headers: {"Authorization": "Bearer " + this.token, "Content-Type": "application/json"},
                 body: JSON.stringify({"name": accountName})
-            };    
+            };
             var data = await fetch(getCredentialUrl, requestOptions);
             if (data.status === 401) {
                 throw new UnauthorizedException("Unauthorized");
@@ -225,7 +225,7 @@ export class RemotePasswordService {
             if (data.status === 401 || data.status === 403) {
                 throw new UnauthorizedException("Unauthorized");
             }
-        }  
+        }
     }
 
     async isLogged() {
@@ -252,7 +252,6 @@ export class RemotePasswordService {
 
     async getDecryptedPassword(accountName) {
         const privateKey = await this.keyProviderService.getPrivateKey();
-        console.log(privateKey);
         const encryptedPassword = await this.getEncryptedPassword(accountName);
         return forge.util.decodeUtf8(
             privateKey.decrypt(forge.util.decode64(encryptedPassword), this.padding, {

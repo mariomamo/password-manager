@@ -1,18 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { passwordService } from '../../services/PasswordService/PasswordService';
-import { storageService } from '../../services/StorageService/StorageService';
+import FingerprintScanner from 'react-native-fingerprint-scanner';
 
-const useLoignPageHook = ({navigation})=> {
+const useLoginPageHook = ({route, navigation})=> {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        // TODO: Loader
         (async function checkJwtToken() {
-            const jwt_token = await storageService.get("jwt_token");
-            if (jwt_token) {
-                passwordService.setToken(jwt_token);
-                navigation.replace("Home");
+            if (route.params && route.params.isLogout) {
+                await passwordService.logOut();
+                navigation.replace("Login");
+            } else if (await passwordService.isLogged()) {
+                //TODO: Auth service
+                FingerprintScanner.authenticate({description: "Authentication required"})
+                .then(() => navigation.replace("Home"))
+                .error(error => console.log("FINGERPRINT ERROR: " + error));
             }
           })();
     }, [])
@@ -24,7 +27,7 @@ const useLoignPageHook = ({navigation})=> {
                 if (data.status != "UNAUTHORIZED") {
                     setUsername("");
                     setPassword("");
-                    await storageService.set("jwt_token", data.data);
+                    //TODO: Use constants
                     navigation.replace("Home");
                 } else {
                     // message.error("Wrong credentials, retry", 2);
@@ -41,4 +44,4 @@ const useLoignPageHook = ({navigation})=> {
     return {setUsername, setPassword, login};
 }
 
-export default useLoignPageHook;
+export default useLoginPageHook;

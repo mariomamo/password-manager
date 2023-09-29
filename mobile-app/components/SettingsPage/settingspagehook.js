@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { storageService } from '../../services/StorageService/StorageService';
+import { storageService } from "../../services/StorageService/StorageServiceConfig";
 
 const useSettingsPageHook = ()=> {
     const [server, setServer] = useState("");
@@ -15,9 +15,6 @@ const useSettingsPageHook = ()=> {
     }, [])
 
     const saveSettings = ()=> {
-        console.log(server);
-        console.log(PublicKey);
-        console.log(PrivateKey);
         storageService.set("server", server);
         storageService.set("PublicKey", PublicKey);
         storageService.set("PrivateKey", PrivateKey);

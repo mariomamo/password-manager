@@ -29,4 +29,4 @@ CREATE TABLE refresh_token_ids(
     FOREIGN KEY (session_id) REFERENCES active_sessions(session_id) ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-INSERT INTO `user` (`username`, `password`, `name`, `surename`, `token`) VALUES ('test_user', '098f6bcd4621d373cade4e832627b4f6', 'test', 'test', '')
+INSERT INTO `user` (`username`, `password`, `name`, `surename`, `token`) VALUES ('test_user', 'a94a8fe5ccb19ba61c4c0873d391e987982fbbd3', 'test', 'test', '')
