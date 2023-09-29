@@ -23,3 +23,5 @@ password manager-win_x64.exe
 WebView2Loader.dll
 
 exports/
+
+app/.idea/workspace.xml
